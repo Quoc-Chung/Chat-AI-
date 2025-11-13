@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: chat-al-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Ch@/12345678
+      POSTGRES_DB: spring-data-demo
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  chat-al-app:
+    build: .
+    container_name: chat-al-app
+    environment:
+      GEMINI_KEY: ${GEMINI_KEY}   # từ host hoặc .env
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/spring-data-demo
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: Ch@/12345678
+    ports:
+      - "8097:8097"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
