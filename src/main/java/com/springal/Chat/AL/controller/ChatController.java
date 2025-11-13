@@ -28,12 +28,12 @@ public class ChatController {
         return chatService.chatWithImage(file, mesage);
    }
 
-   @PostMapping("/chat-with-image-v2")
-   String chatWidthImage(@RequestParam(value = "file",required = false ) MultipartFile file,
-       @RequestParam(value = "message", required = false) String message,
-       @RequestParam(value="username") String username) throws IOException {
-     return chatService.chatWithImageAsString(file, message, username);
-   }
+  @PostMapping("/chat-with-image-v2")
+  String chatWidthImage(@RequestParam(value = "file",required = false ) MultipartFile file,
+      @RequestParam(value = "message", required = false) String message,
+      @RequestParam(value="username") String username) throws IOException {
+    return chatService.chatWithImageAsString(file, message, username);
+  }
 
   @PostMapping("/chat-with-video")
   public String chatWithVideo(
