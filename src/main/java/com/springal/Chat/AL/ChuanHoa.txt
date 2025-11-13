@@ -1,0 +1,14 @@
+src/main/java/com/yourpackage/nlu/
+├── service/
+│   ├── TextNormalizationService.java
+│   ├── LocationNormalizer.java
+│   ├── DateNormalizer.java (Lấy ra chính xác ngày cụ thể dựa trên từ khóa)
+│   └── StopWordFilter.java
+├── model/
+│   └── NormalizedText.java
+├── controller/
+│   └── NLUController.java
+└── config/
+    └── NLUConfig.java
+
+
